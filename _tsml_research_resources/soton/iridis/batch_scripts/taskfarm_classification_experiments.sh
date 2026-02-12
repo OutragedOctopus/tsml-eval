@@ -10,7 +10,7 @@ start_fold=1
 max_num_submitted=900
 
 # Queue options are https://sotonac.sharepoint.com/teams/HPCCommunityWiki/SitePages/Iridis%205%20Job-submission-and-Limits-Quotas.aspx
-queue="batch"
+queue="amd_student"
 
 # The number of tasks to submit in each job. This can be larger than the number of cores, but tasks will be delayed until a core is free
 n_tasks_per_node=40
