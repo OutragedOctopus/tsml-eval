@@ -37,13 +37,13 @@ max_time="60:00:00"
 start_point=1
 
 # Put your home directory here
-local_path="/mainfs/home/$username/"
-scratch_base="/scratch/$username/"
+local_path="/mainfs/home/$username"
+scratch_base="/scratch/$username"
 
 # Datasets to use and directory of data files. Dataset list can either be a text file or directory of text files
 # Separate text files will not run jobs of the same dataset in the same node. This is good to keep large and small datasets separate
 data_dir="$scratch_base/ucr/"
-dataset_list="$local_path/DataSetLists/"
+dataset_list="$local_path/DataSetLists/Univariate112Datasets.txt"
 
 # Results and output file write location. Change these to reflect your own file structure
 results_dir="$scratch_base/results/"
