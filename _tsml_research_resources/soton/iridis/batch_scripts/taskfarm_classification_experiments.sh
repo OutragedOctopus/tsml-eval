@@ -37,7 +37,7 @@ max_time="60:00:00"
 start_point=1
 
 # Put your home directory here
-local_path="/mainfs/home/$username"
+local_path="$HOME"
 scratch_base="/scratch/$username"
 
 # Datasets to use and directory of data files. Dataset list can either be a text file or directory of text files
