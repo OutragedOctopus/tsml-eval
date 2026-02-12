@@ -3,7 +3,7 @@
 # While reading is fine, please dont write anything to the default directories in this script
 
 # Start and end for resamples
-max_folds=10
+max_folds=30
 start_fold=1
 
 # To avoid hitting the cluster queue limit we have a higher level queue
@@ -26,7 +26,7 @@ max_cpus_to_use=40
 split_classifiers="true"
 
 # Enter your username and email here
-username="ajb2u23"
+username="bt2g23"
 mail="NONE"
 mailto=$username"@soton.ac.uk"
 
@@ -38,26 +38,27 @@ start_point=1
 
 # Put your home directory here
 local_path="/mainfs/home/$username/"
+scratch_base="/scratch/$username/"
 
 # Datasets to use and directory of data files. Dataset list can either be a text file or directory of text files
 # Separate text files will not run jobs of the same dataset in the same node. This is good to keep large and small datasets separate
-data_dir="$local_path/Data/"
-dataset_list="$local_path/DataSetLists/ClassificationBatch/"
+data_dir="$scratch_base/ucr/"
+dataset_list="$local_path/DataSetLists/"
 
 # Results and output file write location. Change these to reflect your own file structure
-results_dir="$local_path/ClassificationResults/results/"
-out_dir="$local_path/ClassificationResults/output/"
+results_dir="$scratch_base/results/"
+out_dir="$scratch_base/output/"
 
 # The python script we are running
-script_file_path="$local_path/tsml-eval/tsml_eval/experiments/classification_experiments.py"
+script_file_path="$local_path/tsml-eval/tsml_eval/publications/2023/tsc_bakeoff/run_experiments.py"
 
 # Environment name, change accordingly, for set up, see https://github.com/time-series-machine-learning/tsml-eval/blob/main/_tsml_research_resources/soton/iridis/iridis_python.md
 # Separate environments for GPU and CPU are recommended
-env_name="eval-py11"
+env_name="eval-py10"
 
 # Classifiers to loop over. Must be separated by a space. Different classifiers will not run in the same node by default
 # See list of potential classifiers in set_classifier
-classifiers_to_run="ROCKET DrCIF"
+classifiers_to_run="STC RDST"
 
 # You can add extra arguments here. See tsml_eval/utils/arguments.py parse_args
 # You will have to add any variable to the python call close to the bottom of the script
@@ -67,7 +68,7 @@ classifiers_to_run="ROCKET DrCIF"
 generate_train_files="false"
 
 # If set for true, looks for <problem><fold>_TRAIN.ts file. This is useful for running tsml-java resamples
-predefined_folds="false"
+predefined_folds="true"
 
 # Normalise data before fit/predict
 normalise_data="false"
@@ -107,8 +108,8 @@ echo "#!/bin/bash
 
 . /etc/profile
 
-module load anaconda/py3.10
-source activate $env_name
+module load conda/python3
+conda activate $env_name
 
 staskfarm ${outDir}/generatedCommandList-${dt}.txt" > generatedSubmissionFile-${dt}.sub
 
