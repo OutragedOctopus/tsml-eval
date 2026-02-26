@@ -202,7 +202,8 @@ fi
 
 # Input args to the default classification_experiments are in main method of
 # https://github.com/time-series-machine-learning/tsml-eval/blob/main/tsml_eval/experiments/classification_experiments.py
-echo "python -u ${script_file_path} ${data_dir} ${results_dir} ${classifier} ${dataset} ${resample} ${generate_train_files} ${predefined_folds} ${normalise_data} > ${out_dir}/${classifier}/output-${dataset}-${resample}-${dt}.txt 2>&1" >> ${outDir}/generatedCommandList-${dt}.txt
+PYTHON_BIN="$HOME/.conda/envs/${env_name}/bin/python"
+echo "${PYTHON_BIN} -u ${script_file_path} ${data_dir} ${results_dir} ${classifier} ${dataset} ${resample} ${generate_train_files} ${predefined_folds} ${normalise_data} > ${out_dir}/${classifier}/output-${dataset}-${resample}-${dt}.txt 2>&1" >> ${outDir}/generatedCommandList-${dt}.txt
 
 ((cmdCount++))
 ((totalCount++))
