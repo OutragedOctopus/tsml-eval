@@ -56,6 +56,7 @@ script_file_path="$local_path/tsml-eval/tsml_eval/publications/2023/tsc_bakeoff/
 # Separate environments for GPU and CPU are recommended
 env_name="eval-py11"
 
+
 # Classifiers to loop over. Must be separated by a space. Different classifiers will not run in the same node by default
 # See list of potential classifiers in set_classifier
 classifiers_to_run="STC RDST RSTC RDST_rotation_only RDST_rotation_pipeline"
@@ -111,6 +112,13 @@ echo "#!/bin/bash
 module load conda/python3
 source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate $env_name
+echo "HOST: $(hostname)"
+echo "WHICH PYTHON: $(which python)"
+python -c "import sys; print('EXEC:', sys.executable); print('PREFIX:', sys.prefix)"
+python -c "import tsml; print('TSML:', tsml.__file__)" || echo "tsml import FAILED"
+python -c "import tsml_eval; print('TSML_EVAL:', tsml_eval.__file__)" || echo "tsml_eval import FAILED"
+
+
 
 staskfarm ${outDir}/generatedCommandList-${dt}.txt" > generatedSubmissionFile-${dt}.sub
 
