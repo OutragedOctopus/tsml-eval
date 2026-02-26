@@ -125,14 +125,15 @@ def _set_bakeoff_classifier(
             random_state=random_state,
             **kwargs,
         )
-    elif c == "rdstclassifier_rotation_only" or c == "rdstc_rotation_only":
+    elif c == "rdstclassifier_rotation_only" or c == "rdst_rotation_only":
         from aeon.classification.shapelet_based import RDSTClassifier_rotation_only
+        print("Returning the thing")
 
         return RDSTClassifier_rotation_only(
             random_state=random_state,
             **kwargs,
         )
-    elif c == "rdstclassifier_rotation_pipeline" or c == "rdstc_rotation_pipeline":
+    elif c == "rdstclassifier_rotation_pipeline" or c == "rdst_rotation_pipeline":
         from aeon.classification.shapelet_based import RDSTClassifier_rotation_pipeline
 
         return RDSTClassifier_rotation_pipeline(
