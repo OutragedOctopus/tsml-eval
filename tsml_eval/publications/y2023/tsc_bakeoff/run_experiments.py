@@ -25,7 +25,7 @@ from tsml_eval.utils.experiments import _results_present
 # all classifiers ran without duplicates
 distance_based = ["1NN-DTW", "GRAIL"]
 feature_based = ["Catch22", "FreshPRINCE", "TSFresh", "Signatures"]
-shapelet_based = ["STC", "RDST", "RSF", "MrSQM"]
+shapelet_based = ["STC", "RDST", "RSF", "MrSQM", "RSTC","RDST_rotatition_only","RDST_rotation_pipeline"]
 interval_based = ["R-STSF", "RISE", "TSF", "CIF", "STSF", "DrCIF", "QUANT"]
 dictionary_based = ["BOSS", "cBOSS", "TDE", "WEASEL", "WEASEL-D"]
 convolution_based = [

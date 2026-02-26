@@ -16,6 +16,9 @@ bakeoff_classifiers = [
     # shapelet based
     ["ShapeletTransformClassifier", "stc", "stc-2hour"],
     ["RDSTClassifier", "rdst"],
+    ["RSTClassifier","rstc"],
+    ["RDSTClassifier_rotation_only", "rdst_rotation_only"],
+    ["RDSTClassifier_rotation_pipeline", "rdst_rotation_pipeline"],
     ["RandomShapeletForestClassifier", "randomshapeletforest", "rsf"],
     ["MrSQMClassifier", "mrsqm"],  # changed to dictionary based after bakeoff
     # interval based
@@ -112,6 +115,27 @@ def _set_bakeoff_classifier(
         from aeon.classification.shapelet_based import RDSTClassifier
 
         return RDSTClassifier(
+            random_state=random_state,
+            **kwargs,
+        )
+    elif c == "rstclassifier" or c == "rstc":
+        from aeon.classification.shapelet_based import RSTClassifier
+
+        return RSTClassifier(
+            random_state=random_state,
+            **kwargs,
+        )
+    elif c == "rdstclassifier_rotation_only" or c == "rdstc_rotation_only":
+        from aeon.classification.shapelet_based import RDSTClassifier_rotation_only
+
+        return RDSTClassifier_rotation_only(
+            random_state=random_state,
+            **kwargs,
+        )
+    elif c == "rdstclassifier_rotation_pipeline" or c == "rdstc_rotation_pipeline":
+        from aeon.classification.shapelet_based import RDSTClassifier_rotation_pipeline
+
+        return RDSTClassifier_rotation_pipeline(
             random_state=random_state,
             **kwargs,
         )

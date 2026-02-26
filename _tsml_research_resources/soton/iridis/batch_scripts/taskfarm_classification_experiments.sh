@@ -54,11 +54,11 @@ script_file_path="$local_path/tsml-eval/tsml_eval/publications/2023/tsc_bakeoff/
 
 # Environment name, change accordingly, for set up, see https://github.com/time-series-machine-learning/tsml-eval/blob/main/_tsml_research_resources/soton/iridis/iridis_python.md
 # Separate environments for GPU and CPU are recommended
-env_name="eval-py10"
+env_name="eval-py11"
 
 # Classifiers to loop over. Must be separated by a space. Different classifiers will not run in the same node by default
 # See list of potential classifiers in set_classifier
-classifiers_to_run="STC RDST"
+classifiers_to_run="STC RDST RSTC RDST_rotation_only RDST_rotation_pipeline"
 
 # You can add extra arguments here. See tsml_eval/utils/arguments.py parse_args
 # You will have to add any variable to the python call close to the bottom of the script
