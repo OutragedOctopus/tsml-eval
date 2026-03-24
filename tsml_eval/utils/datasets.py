@@ -152,4 +152,4 @@ def save_merged_dataset_splits(
     X = np.concatenate([X_train, X_test], axis=0)
     y = np.concatenate([y_train, y_test], axis=0)
 
-    save_to_ts_file(X, f"{save_path}/{dataset}/", y=y, problem_name=dataset)
+    save_to_ts_file(X, y, path=f"{save_path}/{dataset}/", problem_name=dataset)
