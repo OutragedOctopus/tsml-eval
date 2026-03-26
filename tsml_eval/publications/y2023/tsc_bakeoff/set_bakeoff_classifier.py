@@ -15,6 +15,7 @@ bakeoff_classifiers = [
     ["SignatureClassifier", "signatures"],
     # shapelet based
     ["ShapeletTransformClassifier", "stc", "stc-2hour"],
+    ["ShapeletTransformClassifier_ridge", "stc_ridge"],
     ["RDSTClassifier", "rdst"],
     ["RSTClassifier","rstc"],
     ["RDSTClassifier_rotation_only", "rdst_rotation_only"],
@@ -107,6 +108,23 @@ def _set_bakeoff_classifier(
 
         return ShapeletTransformClassifier(
             n_shapelet_samples=10000,
+            random_state=random_state,
+            n_jobs=n_jobs,
+            **kwargs,
+        )
+    elif c == "shapelettransformclassifier_ridge" or c == "stc_ridge":
+        from aeon.classification.shapelet_based import ShapeletTransformClassifier
+        from sklearn.linear_model import RidgeClassifierCV
+        from sklearn.pipeline import make_pipeline
+        from sklearn.preprocessing import StandardScaler
+        import numpy as np
+
+        return ShapeletTransformClassifier(
+            n_shapelet_samples=10000,
+            estimator=make_pipeline(
+                StandardScaler(with_mean=True),
+                RidgeClassifierCV(alphas=np.logspace(-4, 4, 20)),
+            ),
             random_state=random_state,
             n_jobs=n_jobs,
             **kwargs,
