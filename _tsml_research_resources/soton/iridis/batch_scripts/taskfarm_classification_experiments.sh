@@ -59,7 +59,7 @@ env_name="eval-py11"
 
 # Classifiers to loop over. Must be separated by a space. Different classifiers will not run in the same node by default
 # See list of potential classifiers in set_classifier
-classifiers_to_run="STC RDST RSTC RDST_rotation_only RDST_rotation_pipeline"
+classifiers_to_run="RDST_rotation_only RDST_rotation_pipeline"
 
 # You can add extra arguments here. See tsml_eval/utils/arguments.py parse_args
 # You will have to add any variable to the python call close to the bottom of the script
