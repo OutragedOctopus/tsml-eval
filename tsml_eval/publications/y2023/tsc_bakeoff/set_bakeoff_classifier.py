@@ -20,6 +20,11 @@ bakeoff_classifiers = [
     ["RSTClassifier","rstc"],
     ["RDSTClassifier_rotation_only", "rdst_rotation_only"],
     ["RDSTClassifier_rotation_pipeline", "rdst_rotation_pipeline"],
+    ["RDSTClassifier_rotation_pipeline_2", "rdst_rotation_pipeline_2"],
+    ["RDSTClassifier_rotation_pipeline_3", "rdst_rotation_pipeline_3"],
+    ["RDSTClassifier_rotation_pipeline_4", "rdst_rotation_pipeline_4"],
+    ["RDSTClassifier_rotation_pipeline_pca_95", "rdst_rotation_pipeline_pca_95"],
+    ["RDSTClassifier_rotation_pipeline_pca_99", "rdst_rotation_pipeline_pca_99"],
     ["RandomShapeletForestClassifier", "randomshapeletforest", "rsf"],
     ["MrSQMClassifier", "mrsqm"],  # changed to dictionary based after bakeoff
     # interval based
