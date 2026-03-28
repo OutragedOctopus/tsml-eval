@@ -158,6 +158,41 @@ def _set_bakeoff_classifier(
             random_state=random_state,
             **kwargs,
         )
+    elif c == "rdstclassifier_rotation_pipeline_2" or c == "rdst_rotation_pipeline_2":
+        from aeon.classification.shapelet_based import RDSTClassifier_rotation_pipeline_2
+
+        return RDSTClassifier_rotation_pipeline_2(
+            random_state=random_state,
+            **kwargs,
+        )
+    elif c == "rdstclassifier_rotation_pipeline_3" or c == "rdst_rotation_pipeline_3":
+        from aeon.classification.shapelet_based import RDSTClassifier_rotation_pipeline_3
+
+        return RDSTClassifier_rotation_pipeline_3(
+            random_state=random_state,
+            **kwargs,
+        )
+    elif c == "rdstclassifier_rotation_pipeline_4" or c == "rdst_rotation_pipeline_4":
+        from aeon.classification.shapelet_based import RDSTClassifier_rotation_pipeline_4
+
+        return RDSTClassifier_rotation_pipeline_4(
+            random_state=random_state,
+            **kwargs,
+        )
+    elif c == "rdstclassifier_rotation_pipeline_pca_95" or c == "rdst_rotation_pipeline_pca_95":
+        from aeon.classification.shapelet_based import RDSTClassifier_rotation_pipeline_pca_95
+
+        return RDSTClassifier_rotation_pipeline_pca_95(
+            random_state=random_state,
+            **kwargs,
+        )
+    elif c == "rdstclassifier_rotation_pipeline_pca_99" or c == "rdst_rotation_pipeline_pca_99":
+        from aeon.classification.shapelet_based import RDSTClassifier_rotation_pipeline_pca_99
+
+        return RDSTClassifier_rotation_pipeline_pca_99(
+            random_state=random_state,
+            **kwargs,
+        )
     elif (
         c == "randomshapeletforestclassifier"
         or c == "randomshapeletforest"
