@@ -14,6 +14,8 @@ bakeoff_classifiers = [
     ["TSFreshClassifier", "tsfresh"],
     ["SignatureClassifier", "signatures"],
     # shapelet based
+    ["SASTClassifier", "sast"],
+    ["RSASTClassifier", "rsast"],
     ["ShapeletTransformClassifier", "stc", "stc-2hour"],
     ["ShapeletTransformClassifier_ridge", "stc_ridge"],
     ["RDSTClassifier", "rdst"],
@@ -130,6 +132,20 @@ def _set_bakeoff_classifier(
                 StandardScaler(with_mean=True),
                 RidgeClassifierCV(alphas=np.logspace(-4, 4, 20)),
             ),
+            random_state=random_state,
+            n_jobs=n_jobs,
+            **kwargs,
+        )
+    elif c == "sastclassifier" or c == "sast":
+        from aeon.classification.shapelet_based import SASTClassifier
+        return SASTClassifier(
+            random_state=random_state,
+            n_jobs=n_jobs,
+            **kwargs,
+        )
+    elif c == "rsastclassifier" or c == "rsast":
+        from aeon.classification.shapelet_based import RSASTClassifier
+        return RSASTClassifier(
             random_state=random_state,
             n_jobs=n_jobs,
             **kwargs,
