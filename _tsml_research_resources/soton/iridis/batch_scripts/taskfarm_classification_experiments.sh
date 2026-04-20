@@ -99,6 +99,7 @@ fi
 echo "#!/bin/bash
 #SBATCH --mail-type=${mail}
 #SBATCH --mail-user=${mailto}
+#SBATCH --mem=0
 #SBATCH --job-name=batch-${dt}
 #SBATCH -p ${queue}
 #SBATCH -t ${max_time}
