@@ -59,14 +59,14 @@ env_name="eval-py11"
 
 # Classifiers to loop over. Must be separated by a space. Different classifiers will not run in the same node by default
 # See list of potential classifiers in set_classifier
-classifiers_to_run="RSAST SAST"
+classifiers_to_run="rdst_rotation_pipeline_2 rdst_rotation_pipeline_3"
 
 # You can add extra arguments here. See tsml_eval/utils/arguments.py parse_args
 # You will have to add any variable to the python call close to the bottom of the script
 # and possibly to the options handling below
 
 # generate a results file for the train data as well as test, usually slower
-generate_train_files="false"
+generate_train_files="true"
 
 # If set for true, looks for <problem><fold>_TRAIN.ts file. This is useful for running tsml-java resamples
 predefined_folds="true"
