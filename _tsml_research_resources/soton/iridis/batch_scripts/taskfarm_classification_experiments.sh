@@ -111,7 +111,7 @@ echo "#!/bin/bash
 . /etc/profile
 
 module load conda/python3
-source "$(conda info --base)/etc/profile.d/conda.sh"
+source /iridisfs/ixsoftware/conda/miniconda-py3/etc/profile.d/conda.sh
 conda activate $env_name
 
 
