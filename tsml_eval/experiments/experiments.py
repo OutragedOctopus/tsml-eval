@@ -156,6 +156,7 @@ def run_classification_experiment(
             "capability:train_estimate", False, False
         ):
             use_fit_predict = True
+    
     elif isinstance(classifier, BaseTimeSeriesEstimator) and is_classifier(classifier):
         pass
     elif isinstance(classifier, BaseEstimator) and is_classifier(classifier):
@@ -227,9 +228,11 @@ def run_classification_experiment(
     second = str(classifier.get_params()).replace("\n", " ").replace("\r", " ")
 
     if build_train_file:
+        print(f"Building train file, use_fit_predict={use_fit_predict}")
         cv_size = 10
         start = int(round(time.time() * 1000))
         if use_fit_predict:
+            print("Using custom fit_predict_proba...")
             train_probs = classifier.fit_predict_proba(X_train, y_train)
             needs_fit = False
             fit_and_train_time = int(round(time.time() * 1000)) - start
