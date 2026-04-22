@@ -68,6 +68,7 @@ def _run_experiment(args, predefined_resample):
         classifier = args.estimator_name
         dataset_name = args.dataset_name
         resample_id = args.resample_id
+        build_train_file=args.train_fold
         n_jobs = args.n_jobs
         kwargs = args.kwargs
         overwrite = args.overwrite
@@ -103,6 +104,7 @@ def _run_experiment(args, predefined_resample):
             resample_id=resample_id,
             overwrite=overwrite,
             predefined_resample=predefined_resample,
+            build_train_file=build_train_file
         )
 
 
