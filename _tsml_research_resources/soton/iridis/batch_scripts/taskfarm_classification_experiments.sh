@@ -46,8 +46,8 @@ data_dir="$scratch_base/ucr/"
 dataset_list="$local_path/DataSetLists/Univariate112Datasets.txt"
 
 # Results and output file write location. Change these to reflect your own file structure
-results_dir="$scratch_base/results_2/"
-out_dir="$scratch_base/output_2/"
+results_dir="$scratch_base/results_3/"
+out_dir="$scratch_base/output_3/"
 
 # The python script we are running
 script_file_path="$local_path/tsml-eval/tsml_eval/publications/2023/tsc_bakeoff/run_experiments.py"
