@@ -226,6 +226,7 @@ def run_classification_experiment(
     )
 
     second = str(classifier.get_params()).replace("\n", " ").replace("\r", " ")
+    print("Build train file is: ", build_train_file)
 
     if build_train_file:
         print(f"Building train file, use_fit_predict={use_fit_predict}")
@@ -420,6 +421,8 @@ def load_and_run_classification_experiment(
         attribute_file_path = f"{results_path}/{classifier_name}/Workspace/{dataset}/"
     else:
         attribute_file_path = None
+
+    print("Running classification experiment!!")
 
     run_classification_experiment(
         X_train,
