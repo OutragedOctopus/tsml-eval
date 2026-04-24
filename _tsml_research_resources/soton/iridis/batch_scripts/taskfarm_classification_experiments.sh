@@ -46,8 +46,8 @@ data_dir="$scratch_base/ucr/"
 dataset_list="$local_path/DataSetLists/Univariate112Datasets.txt"
 
 # Results and output file write location. Change these to reflect your own file structure
-results_dir="$scratch_base/results_3/"
-out_dir="$scratch_base/output_3/"
+results_dir="$scratch_base/results/"
+out_dir="$scratch_base/output/"
 
 # The python script we are running
 script_file_path="$local_path/tsml-eval/tsml_eval/publications/2023/tsc_bakeoff/run_experiments.py"
@@ -59,7 +59,7 @@ env_name="eval-py11"
 
 # Classifiers to loop over. Must be separated by a space. Different classifiers will not run in the same node by default
 # See list of potential classifiers in set_classifier
-classifiers_to_run="rdst"
+classifiers_to_run="RSAST"
 
 # You can add extra arguments here. See tsml_eval/utils/arguments.py parse_args
 # You will have to add any variable to the python call close to the bottom of the script
