@@ -18,6 +18,11 @@ bakeoff_classifiers = [
     ["RSASTClassifier", "rsast"],
     ["ShapeletTransformClassifier", "stc", "stc-2hour"],
     ["ShapeletTransformClassifier_ridge", "stc_ridge"],
+    ["BatchRDSTClassifier", "batch_rdst", "batch_rdst_10", "BatchRDSTClassifier-10"],
+    ["PruneBatchRDSTClassifier", "prune_batch_rdst", "PruneBatchRDSTClassifier-10", "prune_batch_rdst_10"],
+    ["EarlyBatchRDSTClassifier", "early_batch_rdst", "EarlyBatchRDSTClassifier-10", "early_batch_rdst_10"],
+
+
     ["RDSTClassifier", "rdst"],
     ["RSTClassifier","rstc"],
     ["RDSTClassifier_rotation_only", "rdst_rotation_only"],
@@ -132,6 +137,66 @@ def _set_bakeoff_classifier(
                 StandardScaler(with_mean=True),
                 RidgeClassifierCV(alphas=np.logspace(-4, 4, 20)),
             ),
+            random_state=random_state,
+            n_jobs=n_jobs,
+            **kwargs,
+        )
+    elif c == "earlybatchrdstclassifier" or c == "early_batch_rdst":
+        from aeon.classification.shapelet_based import EarlyBatchRDSTClassifier
+
+        return EarlyBatchRDSTClassifier(
+            max_shapelets=10000,
+            num_batches=20,
+            random_state=random_state,
+            n_jobs=n_jobs,
+            **kwargs,
+        )
+    elif c == "batchrdstclassifier" or c == "batch_rdst":
+        from aeon.classification.shapelet_based import BatchRDSTClassifier
+
+        return BatchRDSTClassifier(
+            max_shapelets=10000,
+            num_batches=20,
+            random_state=random_state,
+            n_jobs=n_jobs,
+            **kwargs,
+        )
+    elif c == "prunebatchrdstclassifier" or c == "prune_batch_rdst":
+        from aeon.classification.shapelet_based import PruneBatchRDSTClassifier
+
+        return PruneBatchRDSTClassifier(
+            max_shapelets=10000,
+            num_batches=20,
+            random_state=random_state,
+            n_jobs=n_jobs,
+            **kwargs,
+        )
+    elif c == "earlybatchrdstclassifier-10" or c == "early_batch_rdst_10":
+        from aeon.classification.shapelet_based import EarlyBatchRDSTClassifier
+
+        return EarlyBatchRDSTClassifier(
+            max_shapelets=10000,
+            num_batches=10,
+            random_state=random_state,
+            n_jobs=n_jobs,
+            **kwargs,
+        )
+    elif c == "batchrdstclassifier-10" or c == "batch_rdst_10":
+        from aeon.classification.shapelet_based import BatchRDSTClassifier
+
+        return BatchRDSTClassifier(
+            max_shapelets=10000,
+            num_batches=10,
+            random_state=random_state,
+            n_jobs=n_jobs,
+            **kwargs,
+        )
+    elif c == "prunebatchrdstclassifier-10" or c == "prune_batch_rdst_10":
+        from aeon.classification.shapelet_based import PruneBatchRDSTClassifier
+
+        return PruneBatchRDSTClassifier(
+            max_shapelets=10000,
+            num_batches=10,
             random_state=random_state,
             n_jobs=n_jobs,
             **kwargs,
