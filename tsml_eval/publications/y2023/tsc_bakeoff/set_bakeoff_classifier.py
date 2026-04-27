@@ -156,7 +156,7 @@ def _set_bakeoff_classifier(
 
         return BatchRDSTClassifier(
             max_shapelets=10000,
-            num_batches=20,
+            num_batches=50,
             random_state=random_state,
             n_jobs=n_jobs,
             **kwargs,
